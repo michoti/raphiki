@@ -7,9 +7,9 @@ include './partials/header.php';
 include './partials/top_nav.php';
 ?>
     
-<div>
+<!-- <div>
 <h1 class="my-3">Home page</h1>
-</div>
+</div> -->
        
        
    

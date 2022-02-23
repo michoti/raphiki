@@ -15,7 +15,7 @@ if(isset($_POST['login_btn']))
 
     if($check_login)
     {
-        redirect("login was successful", "home.php");
+        redirect("login was successful", "citizens/home.php");
     }
     else
     {
@@ -31,7 +31,7 @@ if(isset($_POST['register_btn'])){
     $password = validate($db->conn,$_POST['password']);
     $c_password = validate($db->conn,$_POST['c_password']);
 
-    echo "working auth";
+    // echo "working auth";
 
     $register= new RegisterController;
 
