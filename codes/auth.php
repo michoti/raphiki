@@ -5,6 +5,16 @@ include '../controllers/loginController.php';
 
 $auth = new LoginController;
 
+if(isset($_POST['logout_btn'])){
+    // echo "clicked";
+    $check_logout = $auth->logout();
+
+    if($check_logout)
+    {
+        redirect("Logged out successfuly", "success", "login.php");
+    }
+}
+
 if(isset($_POST['login_btn']))
 {
     $email = validate($db->conn,$_POST['email']);
@@ -15,11 +25,11 @@ if(isset($_POST['login_btn']))
 
     if($check_login)
     {
-        redirect("login was successful", "citizens/home.php");
+        redirect("login was successful", "success", "home.php");
     }
     else
     {
-        redirect("invalid email or password","login.php");
+        redirect("invalid email or password",  "danger", "login.php");
     }
 }
 
@@ -43,7 +53,8 @@ if(isset($_POST['register_btn'])){
 
         if($user_exists)
         {
-            redirect("user already exists", "registration.php");
+            // echo "user exists";
+            redirect("user already exists",  "danger", "registration.php");
         }
         else
         {
@@ -51,17 +62,17 @@ if(isset($_POST['register_btn'])){
 
             if($q)
             {
-                redirect("Added successfully", "login.php");
+                redirect("Added successfully", "success", "login.php");
             }
             else
             {
-                redirect("Registration was unsuccessful", "registration.php");
+                redirect("Registration was unsuccessful", "danger", "registration.php");
             }
         }
     }
     else
     {
-        redirect("Passwords do not match", "registration.php");
+        redirect("Passwords do not match", "danger", "registration.php");
     }
 }
 ?>

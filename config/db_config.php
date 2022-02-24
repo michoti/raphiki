@@ -18,10 +18,11 @@
        echo SITE_URL.$slug; 
     }
 
-    function redirect($msg, $page)
+    function redirect($msg, $type, $page)
     {
         $redirectTo = SITE_URL.$page;
         $_SESSION['message']= "$msg";
+        $_SESSION['type']= "$type";
 
         header("Location: $redirectTo");
         exit(0);
