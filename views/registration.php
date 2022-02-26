@@ -1,6 +1,6 @@
 <?php
 include '../config/db_config.php';
-include '../codes/auth.php';
+
 include './partials/header.php';
 ?>
 

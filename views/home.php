@@ -1,6 +1,9 @@
 <?php 
-include '../config/db_config.php';
-include '../codes/auth.php';
+
+include_once '../controllers/authenticationController.php';
+
+$data = $authenticated->authUserDetail();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +69,14 @@ include '../codes/auth.php';
     </div>
   </header><!-- End Header -->
 </body>
+
+<main>
+  <div class="d-flex justify-content-center align-content-center">
+    <div class="py-5">
+         <h3><?= $data['fname']; ?></h3>
+    </div>
+  </div>
+</main>
 
 
   <!-- ======= Footer ======= -->

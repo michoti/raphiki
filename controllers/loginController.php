@@ -11,14 +11,29 @@ class LoginController
 
     public function userLogin($email, $password)
     {
-        $check_user_query = "SELECT * FROM users WHERE email='$email' AND passwrd='$password' ";
+        
+        $check_user_query = "SELECT * FROM users WHERE email='$email' ";
+
         $result = $this->conn->query($check_user_query);
 
         if($result->num_rows >0)
         {
             $data = $result->fetch_assoc();
-            $this->userAuth($data);
-            return true;
+
+            //$hash = $data['passwrd'];
+
+            $verify_password = password_verify($password, $data['passwrd']);
+
+            if($verify_password)
+            {
+                $this->userAuth($data);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
         else
         {
@@ -37,6 +52,21 @@ class LoginController
             'user_fname' => $data['fname'],
             'user_email' => $data['email']
         ];
+
+    }
+
+    public function comparePassword($pswd, $hashed_pswd)
+    {
+        $compare_password = password_verify( $pswd, $hashed_pswd);
+
+        if($compare_password)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
     }
 

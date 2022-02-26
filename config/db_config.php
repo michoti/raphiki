@@ -12,6 +12,9 @@
 
     $db = new Database;
 
+    
+    include '../codes/auth.php';
+
 
     function base_url($slug)
     {
