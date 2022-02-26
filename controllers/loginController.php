@@ -20,9 +20,7 @@ class LoginController
         {
             $data = $result->fetch_assoc();
 
-            //$hash = $data['passwrd'];
-
-            $verify_password = password_verify($password, $data['passwrd']);
+            $verify_password = $this->comparePassword($password, $data['passwrd']);
 
             if($verify_password)
             {

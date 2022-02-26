@@ -1,3 +1,10 @@
+
+<?php 
+
+include_once '../controllers/authenticationController.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
