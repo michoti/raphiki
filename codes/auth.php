@@ -11,7 +11,7 @@ if(isset($_POST['logout_btn'])){
 
     if($check_logout)
     {
-        redirect("Logged out successfuly", "success", "login.php");
+        redirect("Logged out successfuly", "success", "views/login.php");
     }
 }
 
@@ -25,11 +25,18 @@ if(isset($_POST['login_btn']))
 
     if($check_login)
     {
-        redirect("login was successful", "success", "home.php");
+        if($_SESSION['auth_role'] == '1')
+        {
+            redirect("Wecome sir!", "success", "admin/index.php");
+        }
+        else
+        {            
+            redirect("login was successful", "success", "views/home.php");
+        }
     }
     else
     {
-        redirect("invalid email or password",  "danger", "login.php");
+        redirect("invalid email or password",  "danger", "views/login.php");
     }
 }
 
@@ -54,7 +61,7 @@ if(isset($_POST['register_btn'])){
         if($user_exists)
         {
             // echo "user exists";
-            redirect("user already exists",  "danger", "registration.php");
+            redirect("user already exists",  "danger", "views/registration.php");
         }
         else
         {
@@ -62,17 +69,17 @@ if(isset($_POST['register_btn'])){
 
             if($q)
             {
-                redirect("Added successfully", "success", "login.php");
+                redirect("Added successfully", "success", "views/login.php");
             }
             else
             {
-                redirect("Registration was unsuccessful", "danger", "registration.php");
+                redirect("Registration was unsuccessful", "danger", "views/registration.php");
             }
         }
     }
     else
     {
-        redirect("Passwords do not match", "danger", "registration.php");
+        redirect("Passwords do not match", "danger", "views/registration.php");
     }
 }
 ?>

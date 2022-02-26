@@ -16,13 +16,32 @@ class AuthenticationController
     {
        if(!isset($_SESSION['authenticated']))
         {
-            redirect("login to access the page", "danger", "login.php");
+            redirect("login to access the page", "danger", "views/login.php");
             
             return false;
         }
         else
         {
             return true;
+        }
+    }
+
+
+    public function admin()
+    {
+        $userId = $_SESSION['auth_user']['user_id'];
+
+        $checkAdmin = "SELECT id, role_as FROM users WHERE id='$userId' AND role_as='1' LIMIT 1";
+
+        $result = $this->conn->query($checkAdmin);
+
+        if($result->num_rows == 1)
+        {
+            return true;
+        }
+        else
+        {
+            redirect("You are not authorized as admin", "danger", "views/login.php");
         }
     }
 
@@ -44,7 +63,7 @@ class AuthenticationController
             }
             else
             {
-                redirect("Something went wrong", "danger", "login.php");
+                redirect("Something went wrong", "danger", "views/login.php");
             }
         }
         else

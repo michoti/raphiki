@@ -44,7 +44,7 @@ class LoginController
     private function userAuth($data)
     {
         $_SESSION['authenticated']= true;
-        // $_SESSION['auth_role']= $data['role_as'];
+        $_SESSION['auth_role']= $data['role_as'];
         $_SESSION['auth_user'] = [
             'user_id' => $data['id'],
             'user_fname' => $data['fname'],
@@ -73,7 +73,7 @@ class LoginController
     {
         if(isset($_SESSION['authenticated'])  === TRUE)
         {
-            redirect("you're already logged in", "success", "home.php");
+            redirect("you're already logged in", "success", "views/home.php");
             
             return true;
         }
