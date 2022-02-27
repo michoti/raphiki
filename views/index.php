@@ -7,7 +7,7 @@ include 'partials/header.php';
     <?php
     include 'partials/top_nav.php';
 
-    include_once 'partials/hero_section.php';
+    include 'partials/hero_section.php';
     ?>
 
         <main id="main">

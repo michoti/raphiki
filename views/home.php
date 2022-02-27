@@ -68,12 +68,105 @@ $data = $authenticated->authUserDetail();
   </header><!-- End Header -->
 </body>
 
-<main>
-  <div class="d-flex justify-content-center align-content-center">
-    <div class="py-5">
-         <h3><?= $data['fname']; ?></h3>
-    </div>
-  </div>
+<main id="main">
+     <section id="auth_user_section">
+          <div class="container">
+            <div class="row">
+              <div class="pr-3 col-lg-6 col-sm-12 col-md-6">
+                     <div class="py-3">
+                       <h3>Report a case</h3>
+                     </div>
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name of offender</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Type of relationship with offender</option>
+                          <option value="1">parent</option>
+                          <option value="2">sibling</option>
+                          <option value="3">neighbour</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Type of offense</option>
+                          <option value="1">sexual abuse</option>
+                          <option value="2">Bullying</option>
+                          <option value="3">child labour</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Location of incident</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name of person who can backup the claim</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Where and under what circumstances did it happen?</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="pb-4">
+                    <div class="py-3">
+                      <h3>Previously reported cases</h3>
+                    </div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Offender's name</th>
+                          <th scope="col">Type of offense</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="">
+                     <div class="py-3">
+                       <h3>Speak to our counsellors</h3>
+                     </div>
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Body</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+     </section>
 </main>
 
 
