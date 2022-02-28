@@ -4,7 +4,7 @@ include_once '../controllers/caseController.php';
 
 $data = $authenticated->authUserDetail();
 
-if(isset($_POST['report_case']))
+if(isset($_POST['report_btn']))
 {
     
         $offernderName = mysqli_escape_string($db->conn,$_POST['offender_name']);
@@ -19,6 +19,7 @@ if(isset($_POST['report_case']))
         if($result)
         {
             redirect("Added successfully", "success", "views/home.php");
+            exit(0);
         }
         else
         {

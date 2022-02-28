@@ -18,10 +18,12 @@ class CaseController
 
             $statement = $this->conn->prepare($query);
 
-            $statement->bindParam(1, $offender);
-            $statement->bindParam(2, $location);
-            $statement->bindParam(3, $witness);
-            $statement->bindParam(4, $description);
+            // $statement->bind_param(1, $offender);
+            // $statement->bind_param(2, $location);
+            // $statement->bind_param(3, $witness);
+            // $statement->bind_param(4, $description);
+
+            $statement->bind_param('ssss', $offender, $location,$witness,$description);
             $query_execute = $statement->execute();
 
             if($query_execute)

@@ -75,8 +75,11 @@ $data = $authenticated->authUserDetail();
               <div class="pr-3 col-lg-6 col-sm-12 col-md-6">
                      <div class="py-3">
                        <h3>Report a case</h3>
+
+                       <?php include 'message.php'; ?>
+
                      </div>
-                    <form>
+                    <form action="report_case.php" method="POST">
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name of offender</label>
                         <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
