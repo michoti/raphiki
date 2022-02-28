@@ -79,7 +79,7 @@ $data = $authenticated->authUserDetail();
                     <form>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name of offender</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
                       <div class="mb-3">
                         <select class="form-select" aria-label="Default select example">
@@ -99,17 +99,17 @@ $data = $authenticated->authUserDetail();
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Location of incident</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="location" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name of person who can backup the claim</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="witness" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Where and under what circumstances did it happen?</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label">Under what circumstances did it happen?</label>
+                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="report_btn" class="btn btn-primary">Submit</button>
                     </form>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-6">
