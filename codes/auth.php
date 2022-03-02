@@ -11,7 +11,7 @@ if(isset($_POST['logout_btn'])){
 
     if($check_logout)
     {
-        redirect("Logged out successfuly", "success", "views/login.php");
+        redirect("Logged out successfuly", "success", "views/index.php");
     }
 }
 

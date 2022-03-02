@@ -13,9 +13,15 @@ include 'partials/header.php';
         <main id="main">
 
             <?php
-                include 'partials/hero_section.php';
+                include 'partials/about_section.php';
 
                 include 'partials/values_section.php';
+
+                include 'partials/services_section.php';
+
+                include 'partials/team_section.php';
+
+                include 'partials/contact_section.php';
             ?>
 
         </main>   
