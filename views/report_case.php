@@ -7,14 +7,15 @@ $data = $authenticated->authUserDetail();
 if(isset($_POST['report_btn']))
 {
     
-        $offernderName = mysqli_escape_string($db->conn,$_POST['offender_name']);
+        $offenderName = mysqli_escape_string($db->conn,$_POST['offender_name']);
+        $offenderRelation = mysqli_escape_string($db->conn,$_POST['relation']);
         $location = mysqli_escape_string($db->conn,$_POST['location']);
         $witness = mysqli_escape_string($db->conn,$_POST['witness']);
         $description = mysqli_escape_string($db->conn,$_POST['description']);
         // 'offernderName' => mysqli_escape_string($db->conn,$_POST['offender_name'])
 
         $reportCase = new CaseController;
-        $result = $reportCase->insertCase($offernderName,$location,$witness,$description);
+        $result = $reportCase->insertCase($offenderName, $offenderRelation, $location,$witness,$description);
 
         if($result)
         {

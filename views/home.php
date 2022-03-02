@@ -85,11 +85,11 @@ $data = $authenticated->authUserDetail();
                         <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
                       <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" name="relation" aria-label="Default select example">
                           <option selected>Type of relationship with offender</option>
-                          <option value="1">parent</option>
-                          <option value="2">sibling</option>
-                          <option value="3">neighbour</option>
+                          <option value="parent">parent</option>
+                          <option value="sibling">sibling</option>
+                          <option value="neighbour">neighbour</option>
                         </select>
                       </div>
                       <div class="mb-3">
