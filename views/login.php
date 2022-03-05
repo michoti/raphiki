@@ -38,7 +38,7 @@ include './partials/top_nav.php';
                </form>
             
                <div class="pt-4">
-                    <a class="nav-link" href=" <?php base_url('registration.php') ?>">Click here to register</a>
+                    <a class="nav-link" href="registration.php">Click here to register</a>
                </div>
             </div>
 

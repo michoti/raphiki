@@ -3,6 +3,8 @@
 
 class CaseController
 {
+
+    // public $offended = 
     public function __construct()
     {
         $db = new Database;
@@ -10,37 +12,46 @@ class CaseController
     }
 
 
-    public function insertCase( $offender, $offenderRelation, $location,$witness,$description)
+    public function insertCase( $offender, $offenderRelation, $location, $witness, $description, $userid)
     {
         try
         {
-            $query = "INSERT INTO cases (offenderName, offenderRelation, incidentLocation, witnessPresent, caseDescription) VALUES(?,?,?,?)";
 
-            $statement = $this->conn->prepare($query);
+            $insert_query = "INSERT INTO cases (offenderName, offenderRelation, incidentLocation, witnessPresent, caseDescription, offendedId) VALUES('$offender', '$offenderRelation', '$location', '$witness', '$description', '$userid')";
 
-            // $statement->bind_param(1, $offender);
-            // $statement->bind_param(2, $location);
-            // $statement->bind_param(3, $witness);
-            // $statement->bind_param(4, $description);
-
-            $statement->bind_param('sssss', $offender, $offenderRelation, $location, $witness,$description);
-            $query_execute = $statement->execute();
+            $query_execute = $this->conn->query($insert_query);
 
             if($query_execute)
             {
-                // redirect("Added successfully", "success", "views/home.php");
-                // exit(0);
                 return true;
             }
             else
             {
-                // redirect("Failed to add successfully", "danger", "views/home.php");
                 return false;
             }
         }
-        catch(PDOException $e)
+        catch(Exception $e)
         {
             return $e->getMessage();
+        }
+    }
+
+    public function fetchCase()
+    {
+
+        $user_id = $_SESSION['auth_user']['user_id'];
+
+        $select_query = "SELECT * FROM cases WHERE offendedId='$user_id' ";
+        $result = $this->conn->query($select_query);
+
+        if($result->num_rows > 0 )
+        {
+
+            return $result;
+        }
+        else
+        {
+            return false;
         }
     }
 }

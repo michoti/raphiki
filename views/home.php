@@ -1,6 +1,7 @@
 <?php 
 
 include_once '../controllers/authenticationController.php';
+include_once '../controllers/caseController.php';
 
 $data = $authenticated->authUserDetail();
 
@@ -125,28 +126,38 @@ $data = $authenticated->authUserDetail();
                         <tr>
                           <th scope="col">Date</th>
                           <th scope="col">Offender's name</th>
-                          <th scope="col">Type of offense</th>
-                          <th scope="col">Status</th>
+                          <th scope="col">offender's relation</th>
+                          <th scope="col">IncidentLocation</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                           <?php
+
+                            $cases = new CaseController;
+
+                            $result = $cases->fetchCase();
+
+                            
+
+                            if($result)
+                            {
+                              while($row = $result->fetch_assoc())
+                              {
+                            ?>
+                                <tr>
+                                  <th scope="row"><?= $row['created_at'] ?></th>
+                                  <td><?= $row['offenderName'] ?></td>
+                                  <td><?= $row['offenderRelation'] ?></td>
+                                  <td><?= $row['incidentLocation'] ?></td>
+                                </tr>
+                             <?php
+                              }
+                            }
+                             else
+                             {
+                               echo "No case has been reported";
+                             } ?>
+                        
                       </tbody>
                     </table>
                 </div>
