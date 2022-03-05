@@ -369,7 +369,7 @@ section {
 .hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/hero-bg.png) top center no-repeat;
+  background: url(../img/hero-image.jpg) top center no-repeat;
   background-size: cover;
 }
 .hero h1 {
@@ -698,44 +698,18 @@ section {
   margin-left: 5px;
   font-size: 18px;
 }
-.services .service-box.blue {
-  border-bottom: 3px solid #2db6fa;
+.services .service-box.dark-blue {
+  border-bottom: 3px solid #012970;
 }
-.services .service-box.blue .icon {
-  color: #2db6fa;
-  background: #dbf3fe;
-}
-.services .service-box.blue .read-more {
-  color: #2db6fa;
-}
-.services .service-box.blue:hover {
-  background: #2db6fa;
-}
-.services .service-box.orange {
-  border-bottom: 3px solid #f68c09;
-}
-.services .service-box.orange .icon {
-  color: #f68c09;
-  background: #fde3c4;
-}
-.services .service-box.orange .read-more {
-  color: #f68c09;
-}
-.services .service-box.orange:hover {
-  background: #f68c09;
-}
-.services .service-box.green {
-  border-bottom: 3px solid #08da4e;
-}
-.services .service-box.green .icon {
-  color: #08da4e;
+.services .service-box.dark-blue .icon {
+  color: #012970;
   background: #cffddf;
 }
-.services .service-box.green .read-more {
-  color: #08da4e;
+.services .service-box.dark-blue .read-more {
+  color: #012970;
 }
-.services .service-box.green:hover {
-  background: #08da4e;
+.services .service-box.dark-blue:hover {
+  background: #012970;
 }
 .services .service-box.red {
   border-bottom: 3px solid #e9222c;

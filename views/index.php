@@ -15,8 +15,6 @@ include 'partials/header.php';
             <?php
                 include 'partials/about_section.php';
 
-                include 'partials/values_section.php';
-
                 include 'partials/services_section.php';
 
                 include 'partials/team_section.php';
