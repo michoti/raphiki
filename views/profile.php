@@ -1,7 +1,6 @@
-<?php 
+<?php
 
-include_once '../controllers/authenticationController.php';
-include_once '../controllers/caseController.php';
+include_once '../controllers/profileController.php';
 
 $data = $authenticated->authUserDetail();
 
@@ -70,117 +69,58 @@ $data = $authenticated->authUserDetail();
 </body>
 
 <main id="main">
-     <section id="auth_user_section">
-          <div class="container">
-            <div class="row">
-              <div class="pr-3 col-lg-6 col-sm-12 col-md-6">
-                     <div class="py-3">
-                       <h3>Report a case</h3>
+    <section>
 
-                       <?php include 'message.php'; ?>
+    <div class="container">
+        <div class="row">
+            <?php 
+            $user = new ProfileController;
+            $id = $_SESSION['auth_user']['user_id'];
+            $result = $user->fetchUserData($id);
 
-                     </div>
-                    <form action="report_case.php" method="POST">
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name of offender</label>
-                        <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <select class="form-select" name="relation" aria-label="Default select example">
-                          <option selected>Type of relationship with offender</option>
-                          <option value="parent">parent</option>
-                          <option value="sibling">sibling</option>
-                          <option value="neighbour">neighbour</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Type of offense</option>
-                          <option value="1">sexual abuse</option>
-                          <option value="2">Bullying</option>
-                          <option value="3">child labour</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Location of incident</label>
-                        <input type="text" name="location" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name of person who can backup the claim</label>
-                        <input type="text" name="witness" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Under what circumstances did it happen?</label>
-                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
-                      </div>
-                      <button type="submit" name="report_btn" class="btn btn-primary">Submit</button>
-                    </form>
-              </div>
-              <div class="col-lg-6 col-sm-12 col-md-6">
-                <div class="pb-4">
-                    <div class="py-3">
-                      <h3>Previously reported cases</h3>
+            if($result)
+            {
+                while($row = $result->fetch_assoc())
+                {
+            
+                ?>
+                <div class="col-lg-7 offset-lg-2">
+                    <div class="my-2">
+                        <h4><?= $row['fname'] ?>'s profile</h4>
                     </div>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Date</th>
-                          <th scope="col">Offender's name</th>
-                          <th scope="col">offender's relation</th>
-                          <th scope="col">IncidentLocation</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                           <?php
-
-                            $cases = new CaseController;
-
-                            $result = $cases->fetchCase();
-
-                            
-
-                            if($result)
-                            {
-                              while($row = $result->fetch_assoc())
-                              {
-                            ?>
-                                <tr>
-                                  <th scope="row"><?= $row['created_at'] ?></th>
-                                  <td><?= $row['offenderName'] ?></td>
-                                  <td><?= $row['offenderRelation'] ?></td>
-                                  <td><?= $row['incidentLocation'] ?></td>
-                                </tr>
-                             <?php
-                              }
-                            }
-                             else
-                             {
-                               echo "No case has been reported";
-                             } ?>
-                        
-                      </tbody>
-                    </table>
+                    <div class="pb-2 table-responsive">
+                        <table class="table table-borderless w-50">
+                        <tbody>
+                            <tr>
+                            <th>Name</th>
+                            <td><?= $row['fname'] ?></td>
+                            </tr>
+                            <tr>
+                            <th>Email</th>
+                            <td><?= $row['email'] ?></td>
+                            </tr>
+                            <tr>
+                            <th>Joined on:</th>
+                            <td><?= $row['created_at'] ?></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="">
-                     <div class="py-3">
-                       <h3>Speak to our counsellors</h3>
-                     </div>
-                    <form>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Body</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                
+            <?php }
+        }?>
+                <div class="col-lg-3 border-start">
+                    <div class="d-flex flex-column">
+                        <a href="#" class="nav-link">edit profile</a>
+                        <a href="#" class="nav-link">change passoword</a>
+                        <a href="#" class="nav-link">delete account</a>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-     </section>
+        </div>
+    </div>
+
+    </section>
 </main>
 
 
