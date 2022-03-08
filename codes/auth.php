@@ -1,6 +1,7 @@
 <?php
 include '../controllers/regController.php';
 include '../controllers/loginController.php';
+include_once '../controllers/profileController.php';
 
 
 $auth = new LoginController;
@@ -81,5 +82,30 @@ if(isset($_POST['register_btn'])){
     {
         redirect("Passwords do not match", "danger", "views/registration.php");
     }
+}
+
+
+
+
+if(isset($_POST['edit-profile-btn']))
+{
+    $id = validate($db->conn, $_POST['editedId']);
+    $fname = validate($db->conn, $_POST['editedname']);
+    $email = validate($db->conn, $_POST['editedemail']);
+
+    $user_id= validate($db->conn,$id);
+
+    $Profile = new ProfileController;
+    $execution = $Profile->updateProfile($user_id, $fname, $email);
+
+    if($execution)
+    {
+    redirect("Updated successfuly", "success", "views/profile.php");
+    }
+    else
+    {
+    redirect("Update failed", "danger", "views/edit_profile.php");
+    }
+    
 }
 ?>

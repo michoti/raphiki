@@ -1,5 +1,4 @@
 <?php
-
 include_once '../controllers/authenticationController.php';
 
 $data = $authenticated->authUserDetail();
@@ -71,54 +70,44 @@ $data = $authenticated->authUserDetail();
 <main id="main">
     <section>
 
-    <div class="container">
-        <div class="row my-5">
-           
-           <?php include 'message.php';?>
-            <?php 
-            $user = new ProfileController;
-            $id = $_SESSION['auth_user']['user_id'];
-            $result = $user->fetchUserData($id);
-
-            if($result)
-            {
-                $row = $result->fetch_assoc();
-            
-                ?>
-                <div class="col-lg-7 offset-lg-2">
-                    <div class="my-2">
-                        <h4><?= $row['fname'] ?>'s profile</h4>
-                    </div>
-                    <div class="pb-2 table-responsive">
-                        <table class="table table-borderless w-50">
-                        <tbody>
-                            <tr>
-                            <th>Name</th>
-                            <td><?= $row['fname'] ?></td>
-                            </tr>
-                            <tr>
-                            <th>Email</th>
-                            <td><?= $row['email'] ?></td>
-                            </tr>
-                            <tr>
-                            <th>Joined on:</th>
-                            <td><?= $row['created_at'] ?></td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-            
-                <div class="col-lg-3 border-start">
-                    <div class="d-flex flex-column">
-                        <a href="edit_profile.php?id=<?= $row['id'] ?>" class="nav-link">edit profile</a>
-                        <a href="#" class="nav-link">change passoword</a>
-                        <a href="#" class="nav-link">delete account</a>
-                    </div>
+    <div class="d-flex justify-content-center justify-content-center">
+        <div class="row">
+            <div class="col-10 offset-2">
+                <div class="py-2">
+                    <h3>Edit profile</h3>
                 </div>
                 <?php 
-        }?>
+                   if(isset($_GET['id']))
+                   {
+                      $id= validate($db->conn,$_GET['id']);}
+
+                      $Profile = new ProfileController;
+
+                      $result = $Profile->fetchUserData($id);
+
+                      if($result)
+                      {
+                        $data = $result->fetch_assoc();                   
+                   
+                    ?>
+                          <div class="pb-2">
+                              <form action="" method="POST">
+                              <input type="hidden" name="editedId" class="form-control" id="exampleInputEmail1" value="<?= $data['id']?>" aria-describedby="emailHelp">
+                              <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">First Name</label>
+                                  <input type="text" name="editedname" class="form-control" id="exampleInputEmail1" value="<?= $data['fname']?>" aria-describedby="emailHelp">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                  <input type="email" name="editedemail" class="form-control" id="exampleInputEmail1" value="<?= $data['email']?>" aria-describedby="emailHelp">
+                              </div>
+                              <button type="submit" name="edit-profile-btn" class="btn btn-primary">Submit</button>
+                              </form>
+                    <?php }                    
+                   
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 

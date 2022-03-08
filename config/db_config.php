@@ -31,9 +31,9 @@
         exit(0);
     }
 
-    function validate($dbconn,$input)
+    function validate($dbconn, $input)
     {
-        return mysqli_real_escape_string($dbconn,$input);
+        return mysqli_real_escape_string($dbconn, $input);
     }
 
 ?>

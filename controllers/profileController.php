@@ -1,5 +1,4 @@
 <?php 
-include_once '../controllers/authenticationController.php';
 
 class profileController
 {
@@ -17,7 +16,8 @@ class profileController
 
         if($result)
         {
-            if($result->num_rows >0){
+            if($result->num_rows == 1){
+
                 return $result;
             }
             else
@@ -31,5 +31,29 @@ class profileController
         }
 
     }
+
+
+    public function updateProfile($id, $fname, $email)
+    {
+        if(!empty($fname) && !empty($email))
+        {
+        $q = "UPDATE users SET fname='$fname', email='$email' WHERE id='$id'";
+        $result = $this->conn->query($q);
+
+        if($result)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+  }
 }
 ?>
