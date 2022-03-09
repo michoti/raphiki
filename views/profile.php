@@ -111,26 +111,28 @@ $data = $authenticated->authUserDetail();
                     <div class="d-flex flex-column">
                         <a href="edit_profile.php?id=<?= $row['id'] ?>" class="mb-2 btn btn-primary nav-link">edit profile</a>
                         <a href="change_password.php?userid=<?= $row['id'] ?>" class="mb-2 btn btn-primary nav-link">change password</a>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete">Delete account</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete">Delete account</button>
                     </div>
                     <div class="modal" id="confirmDelete">
                       <div class="modal-dialog">
                         <div class="modal-content">
-
-                          <!-- Modal Header -->
-                          <div class="modal-header">
-                            <h4 class="modal-title">Modal Heading</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-
-                          <!-- Modal body -->
+                          
                           <div class="modal-body">
-                            Modal body..
-                          </div>
+                             <div class="py-2">
+                               <p>Are you sure? You will not be able to undo this.</p>
+                               <div class="d-flex flex-row">
+                                 <div class="p-3">
+                                  <form action="" method="POST">
+                                    <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                                    <button class="btn btn-danger" name="btn-yes">yes</button>
+                                  </form>
+                                 </div>
 
-                          <!-- Modal footer -->
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                 <div class="p-3">
+                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">cancel</button>
+                                 </div>
+                               </div>
+                             </div>
                           </div>
 
                         </div>

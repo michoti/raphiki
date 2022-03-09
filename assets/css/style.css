@@ -1807,6 +1807,12 @@ section {
   font-weight: 550 !important;
 }
 
+.modal-body .flex-row .p-3 .btn{
+  width: 8rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 /* ------------------------------------------------------------
 #profile 
 ------------------------------------------------------------ */

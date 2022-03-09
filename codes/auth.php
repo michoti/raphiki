@@ -152,4 +152,30 @@ if(isset($_POST['changepassword-btn']))
         redirect("password is not in database", "danger", "views/profile.php");
     }
 }
+
+
+if(isset($_POST['btn-yes']))
+{
+    $userid = validate($db->conn, $_POST['user_id']);
+    
+    $profile = new ProfileController;
+    $delete_user = $profile->deleteUser($userid);
+
+    if($delete_user)
+    {
+        $controller = new LoginController;
+        $unset_sessions = $controller->logout();
+
+        if($unset_sessions)
+        {
+            redirect("Raphiki account deleted", "danger", "views/registration.php");
+        }
+
+
+    }
+    else
+    {
+        redirect("Cannot delete account", "danger", "views/profile.php");
+    }
+}
 ?>

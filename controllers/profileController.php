@@ -58,7 +58,17 @@ class ProfileController
 
   public function deleteUser($id)
   {
+      $delete_query = "DELETE FROM users WHERE id='$id'";
+      $execute_delete_query = $this->conn->query($delete_query);
 
+      if($execute_delete_query)
+      {
+          return true;
+      }
+      else
+      {
+          return false;
+      }
   }
 
 
