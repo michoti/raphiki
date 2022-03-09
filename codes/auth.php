@@ -108,4 +108,48 @@ if(isset($_POST['edit-profile-btn']))
     }
     
 }
+
+
+
+if(isset($_POST['changepassword-btn']))
+{
+    $userid = validate($db->conn, $_POST['user_id']);
+    $current = validate($db->conn, $_POST['currentpassword']);
+    $new = validate($db->conn, $_POST['newpassword']);
+
+    $profile = new ProfileController;
+    $result = $profile->fetchUserData($userid);
+
+    if($result == TRUE)
+    {
+        $data = $result->fetch_assoc();
+        $password_verification = new LoginController;
+        $password = $password_verification->comparePassword($current , $data['passwrd']);
+
+        if($password)
+        {
+            $hashedpassword = password_hash($new, PASSWORD_DEFAULT);
+
+            $update_query = "UPDATE users SET passwrd='$hashedpassword' WHERE id='$userid'";
+            $execute_update_query = $db->conn->query($update_query);
+
+            if($execute_update_query)
+            {
+                redirect("password changed successfully", "success", "views/profile.php");
+            }
+            else
+            {
+                redirect("update was not successful", "danger", "views/profile.php");                
+            }
+        }
+        else
+        {
+            redirect("password does not match existing password", "danger", "views/profile.php");            
+        }
+    }
+    else
+    {
+        redirect("password is not in database", "danger", "views/profile.php");
+    }
+}
 ?>

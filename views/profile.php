@@ -44,9 +44,6 @@ $data = $authenticated->authUserDetail();
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $_SESSION['auth_user']['user_fname']; ?></a>
                 <ul class="dropdown-menu">
@@ -112,9 +109,32 @@ $data = $authenticated->authUserDetail();
             
                 <div class="col-lg-3 border-start">
                     <div class="d-flex flex-column">
-                        <a href="edit_profile.php?id=<?= $row['id'] ?>" class="nav-link">edit profile</a>
-                        <a href="#" class="nav-link">change passoword</a>
-                        <a href="#" class="nav-link">delete account</a>
+                        <a href="edit_profile.php?id=<?= $row['id'] ?>" class="mb-2 btn btn-primary nav-link">edit profile</a>
+                        <a href="change_password.php?userid=<?= $row['id'] ?>" class="mb-2 btn btn-primary nav-link">change password</a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete">Delete account</button>
+                    </div>
+                    <div class="modal" id="confirmDelete">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                            Modal body..
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </div>
+                      </div>
                     </div>
                 </div>
                 <?php 

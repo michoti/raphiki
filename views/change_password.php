@@ -69,14 +69,16 @@ $data = $authenticated->authUserDetail();
 
     <div class="d-flex justify-content-center justify-content-center">
         <div class="row">
-            <div class="col-10 offset-2">
-                <div class="py-2">
-                    <h3>Edit profile</h3>
+            <div class="col-12 py-4">
+                <div class="py-3">
+                    <h3>Change password</h3>
+                    <?php include 'message.php'; ?>
                 </div>
                 <?php 
-                   if(isset($_GET['id']))
+                   if(isset($_GET['userid']))
                    {
-                      $id= validate($db->conn,$_GET['id']);}
+                      $id = validate($db->conn,$_GET['userid']);
+                   }  
 
                       $Profile = new ProfileController;
 
@@ -87,23 +89,24 @@ $data = $authenticated->authUserDetail();
                         $data = $result->fetch_assoc();                   
                    
                     ?>
-                          <div class="pb-2">
-                              <form action="" method="POST">
-                              <input type="hidden" name="editedId" class="form-control" id="exampleInputEmail1" value="<?= $data['id']?>" aria-describedby="emailHelp">
-                              <div class="mb-3">
-                                  <label for="exampleInputEmail1" class="form-label">First Name</label>
-                                  <input type="text" name="editedname" class="form-control" id="exampleInputEmail1" value="<?= $data['fname']?>" aria-describedby="emailHelp">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                  <input type="email" name="editedemail" class="form-control" id="exampleInputEmail1" value="<?= $data['email']?>" aria-describedby="emailHelp">
-                              </div>
-                              <button type="submit" name="edit-profile-btn" class="btn btn-primary">Submit</button>
-                              </form>
-                    <?php }                    
-                   
-                    ?>
+
+                    
+                    
+                <form action="" method="POST">
+                <input type="hidden" name="user_id" class="form-control" value="<?= $data['id']?>" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Current password</label>
+                    <input type="text" name="currentpassword" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label"> New Password</label>
+                    <input type="text" name="newpassword" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" name="changepassword-btn" class="btn btn-primary">Submit</button>
+                </form>
+                <?php } 
+                ?>
+
             </div>
         </div>
     </div>

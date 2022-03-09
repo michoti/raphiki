@@ -1,6 +1,6 @@
 <?php 
 
-class profileController
+class ProfileController
 {
     public function __construct()
     {
@@ -55,5 +55,12 @@ class profileController
         return false;
     }
   }
+
+  public function deleteUser($id)
+  {
+
+  }
+
+
 }
 ?>

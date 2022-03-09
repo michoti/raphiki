@@ -1,6 +1,7 @@
 
 :root {
   scroll-behavior: smooth;
+  --pure-white: #ffffff;
 }
 
 body {
@@ -1792,6 +1793,23 @@ section {
   color: #a5c5fe;
   font-size: 14px;
 }
+
+
+/* ------------------------------------------------------------
+#profile 
+------------------------------------------------------------ */
+.container .row .border-start .flex-column .btn-primary{
+  color: #fff !important;
+  font-weight: 550 !important;
+}
+.container .row .border-start .flex-column .btn-danger{
+  color: #fff !important;
+  font-weight: 550 !important;
+}
+
+/* ------------------------------------------------------------
+#profile 
+------------------------------------------------------------ */
 
 /*--------------------------------------------------------------
 # Footer
