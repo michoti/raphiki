@@ -30,6 +30,10 @@ if(isset($_POST['login_btn']))
         {
             redirect("Wecome sir!", "success", "admin/index.php");
         }
+        elseif($_SESSION['auth_role'] == '2')
+        {
+            redirect("Wecome sir!", "success", "counsellor/index.php");
+        }
         else
         {            
             redirect("login was successful", "success", "views/home.php");
@@ -176,6 +180,30 @@ if(isset($_POST['btn-yes']))
     else
     {
         redirect("Cannot delete account", "danger", "views/profile.php");
+    }
+}
+
+
+if(isset($_POST['regCounsellor-btn']))
+{
+    $fname = validate($db->conn,$_POST['first_name']);
+    $sname = validate($db->conn,$_POST['second_name']);
+    $email = validate($db->conn,$_POST['counselloremail']);
+    $c_id = validate($db->conn,$_POST['counsellorId']);
+    $c_tel = validate($db->conn,$_POST['counsellorTel']);
+    $gender = validate($db->conn,$_POST['gender']);
+    $specialty = validate($db->conn,$_POST['specialty']);
+
+    $reg = new RegisterController;
+    $result = $reg->regCounsellor($fname, $sname, $email, $gender, $c_id, $c_tel, $specialty);
+
+    if($result)
+    {
+        redirect("registration successful", "success", "admin/register_counsellor.php");
+    }
+    else
+    {
+        redirect("registration unsuccessful", "danger", "admin/register_counsellor.php");
     }
 }
 ?>

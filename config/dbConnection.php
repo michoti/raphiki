@@ -11,11 +11,6 @@ class Database{
             die("<h2>Database connection failed!</h2>".$conn->connect_error);
         
         }
-        // else
-        // {
-
-        //     echo "Database connected successfully";
-        // }
 
         return $this->conn= $conn;
     }

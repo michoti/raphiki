@@ -39,5 +39,28 @@ class RegisterController
             return false;
         }
     }
+
+
+    public function regCounsellor($fname, $sname, $email, $gender, $counsellor_id, $counsellor_tel, $specialty)
+    { 
+        $default = "yellow";
+        $hashed = password_hash($default, PASSWORD_DEFAULT);
+        $role = 2;
+
+        $query = "INSERT INTO
+         `users`(`fname`, `sname`, `id_number`, `tel_number`, `email`, `specialty`, `passwrd`, `role_as` ) 
+         VALUES ('$fname','$sname','$counsellor_id','$counsellor_tel','$email','$specialty','$hashed','$role')" ; 
+         
+         $result = $this->conn->query($query);
+
+         if($result)
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+    }
 }
 ?>
