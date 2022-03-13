@@ -32,11 +32,15 @@ if(isset($_POST['login_btn']))
         }
         elseif($_SESSION['auth_role'] == '2')
         {
-            redirect("Wecome sir!", "success", "counsellor/index.php");
+            redirect("Wecome counsellor!", "success", "counsellor/index.php");
         }
-        else
+        elseif($_SESSION['auth_role'] == '0')
         {            
             redirect("login was successful", "success", "views/home.php");
+        }
+        else
+        {
+            redirect("user role is not authenticated",  "danger", "views/login.php");            
         }
     }
     else
@@ -49,7 +53,11 @@ if(isset($_POST['login_btn']))
 if(isset($_POST['register_btn'])){
 
     $fname = validate($db->conn,$_POST['fname']);
+    $sname = validate($db->conn,$_POST['sname']);
+    $gender = validate($db->conn,$_POST['gender']);
     $email = validate($db->conn,$_POST['email']);
+    $idNum = validate($db->conn,$_POST['idNum']);
+    $tel = validate($db->conn,$_POST['Tel']);
     $password = validate($db->conn,$_POST['password']);
     $c_password = validate($db->conn,$_POST['c_password']);
 
@@ -70,7 +78,7 @@ if(isset($_POST['register_btn'])){
         }
         else
         {
-            $q = $register->registration($fname,$email,$password);
+            $q = $register->registration($fname, $sname, $gender, $idNum, $tel, $email, $password);
 
             if($q)
             {
@@ -204,6 +212,77 @@ if(isset($_POST['regCounsellor-btn']))
     else
     {
         redirect("registration unsuccessful", "danger", "admin/register_counsellor.php");
+    }
+}
+
+
+
+if(isset($_POST['edit-counsellor-btn']))
+{
+    $id = validate($db->conn, $_POST['counsellor_editID']);
+    $fname = validate($db->conn, $_POST['first_name']);
+    $sname = validate($db->conn, $_POST['second_name']);
+    $gender = validate($db->conn, $_POST['gender']);
+    $email = validate($db->conn, $_POST['counselloremail']);
+    $id_num = validate($db->conn, $_POST['counsellorId']);
+    $tel_num = validate($db->conn, $_POST['counsellorTel']);
+    $specialty = validate($db->conn, $_POST['specialty']);
+
+    $user_id= validate($db->conn,$id);
+
+    $Profile = new ProfileController;
+    $execution = $Profile->updateCounsellor($id, $fname, $sname, $gender, $id_num, $tel_num, $specialty, $email);
+
+    if($execution)
+    {
+    redirect("Updated successfuly", "success", "counsellor/counsellor_profile.php");
+    }
+    else
+    {
+    redirect("Update failed", "danger", "counsellor/edit_counsellor_profile.php");
+    }
+}
+
+
+if(isset($_POST['counsellor-changepassword-btn']))
+{
+    $userid = validate($db->conn, $_POST['user_id']);
+    $current = validate($db->conn, $_POST['currentpassword']);
+    $new = validate($db->conn, $_POST['newpassword']);
+
+    $profile = new ProfileController;
+    $result = $profile->fetchUserData($userid);
+
+    if($result == TRUE)
+    {
+        $data = $result->fetch_assoc();
+        $password_verification = new LoginController;
+        $password = $password_verification->comparePassword($current , $data['passwrd']);
+
+        if($password)
+        {
+            $hashedpassword = password_hash($new, PASSWORD_DEFAULT);
+
+            $update_query = "UPDATE users SET passwrd='$hashedpassword' WHERE id='$userid'";
+            $execute_update_query = $db->conn->query($update_query);
+
+            if($execute_update_query)
+            {
+                redirect("password changed successfully", "success", "counsellor/counsellor_profile.php");
+            }
+            else
+            {
+                redirect("update was not successful", "danger", "counsellor/counsellor_profile.php");                
+            }
+        }
+        else
+        {
+            redirect("password does not match existing password", "danger", "counsellor/counsellor_profile.php");            
+        }
+    }
+    else
+    {
+        redirect("password is not in database", "danger", "counsellor/counsellor_profile.php");
     }
 }
 ?>

@@ -16,6 +16,7 @@ include 'partials/head_admin.php';
 
     <section class="section dashboard">
       <div class="row">
+          <?php include '../views/message.php'; ?>
         <div class="col-lg-8">
           <div class="d-flex flex-column">
           <div class="card">

@@ -45,6 +45,28 @@ class AuthenticationController
         }
     }
 
+
+
+    public function counsellor()
+    {
+        $userId = $_SESSION['auth_user']['user_id'];
+
+        $checkCounsellor = "SELECT id, role_as FROM users WHERE id='$userId' AND role_as='2' LIMIT 1";
+
+        $result = $this->conn->query($checkCounsellor);
+
+        if($result->num_rows == 1)
+        {
+            return true;
+        }
+        else
+        {
+            redirect("You are not authorized as counsellor", "danger", "views/login.php");
+        }
+    }
+
+
+
     public function authUserDetail()
     {
         $checkAuthentication = $this->checkIsLoggedIn();

@@ -32,17 +32,12 @@
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="counsellor_profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
             </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
               <form class="dropdown-item d-flex align-items-center" action="" method="POST">
                 <button class="btn" name="logout_btn">

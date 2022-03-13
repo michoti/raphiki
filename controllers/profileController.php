@@ -56,6 +56,40 @@ class ProfileController
     }
   }
 
+
+  public function updateCounsellor($id, $fname, $sname, $gender, $idNo, $telNo, $specialty, $email)
+  {
+      if(!empty($fname) && !empty($email) && !empty($sname) && !empty($idNo) && !empty($telNo))
+      {
+      $q = "UPDATE users 
+              SET 
+              fname='$fname',
+              sname='$sname',
+              gender='$gender',
+              id_number='$idNo', 
+              tel_number='$telNo', 
+              email='$email', 
+              specialty='$specialty'
+              WHERE 
+              id='$id'";
+      $result = $this->conn->query($q);
+
+      if($result)
+      {
+          return true;
+      }
+      else
+      {
+          return false;
+      }
+
+  }
+  else
+  {
+      return false;
+  }
+}
+
   public function deleteUser($id)
   {
       $delete_query = "DELETE FROM users WHERE id='$id'";

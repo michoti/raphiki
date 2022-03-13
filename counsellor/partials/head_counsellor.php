@@ -3,7 +3,7 @@
 
 include_once '../controllers/authenticationController.php';
 
-$authenticated->admin();
+$authenticated->counsellor();
 
 ?>
 

@@ -25,6 +25,7 @@ class LoginController
             if($verify_password)
             {
                 $this->userAuth($data);
+                
                 return true;
             }
             else
@@ -48,6 +49,9 @@ class LoginController
         $_SESSION['auth_user'] = [
             'user_id' => $data['id'],
             'user_fname' => $data['fname'],
+            'user_sname' => $data['sname'],
+            'user_id_number' => $data['id_number'],
+            'user_gender' => $data['gender'],
             'user_email' => $data['email']
         ];
 

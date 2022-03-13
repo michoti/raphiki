@@ -1,13 +1,4 @@
-/**
-* Template Name: NiceAdmin - v2.2.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
 }
@@ -906,6 +897,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 .profile .profile-edit img {
   max-width: 120px;
+}
+
+.container .row .border-start .flex-column .btn-primary{
+  color: #fff !important;
+  font-weight: 550 !important;
+}
+
+.modal-body .flex-row .p-3 .btn{
+  width: 8rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 /*--------------------------------------------------------------

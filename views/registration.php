@@ -25,25 +25,59 @@ include './partials/top_nav.php';
 
 
             <form action="" method="POST">
+                   <div class="d-flex mb-3 flex-row">
+                       <div>
+                            <label for="exampleInput" class="form-label">First name</label>
+                            <input type="text" class="form-control" name="fname" id="exampleInput" required>
+                        </div>
+                        <div class="px-5">
+                            <label for="exampleInput" class="form-label">second name</label>
+                            <input type="text" class="form-control" name="sname" id="exampleInput" required>
+                        </div>
+                   </div>
                    <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" name="fname" class="form-control">
-                    </div>
+                       <h5>Gender</h5>
+                       <div class="d-flex flex-row">
+                            <div class="form-check px-5">
+                            <input class="form-check-input" type="radio" name="gender" value="male" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Male
+                            </label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="female" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Female
+                            </label>
+                            </div>
+                       </div>
+                   </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    <div class="mb-3 d-flex">
+                        <div>
+                            <label for="exampleInputEmail1" class="form-label">ID number</label>
+                            <input type="text" class="form-control" name="idNum"  id="exampleInputEmail1" placeholder="optional">
+                        </div>
+                        <div class="px-5">
+                            <label for="exampleInputEmail1" class="form-label">Telephone number</label>
+                            <input type="tel" class="form-control" name="Tel" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="optional">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword2" class="form-label">Confirm assword</label>
-                        <input type="password" name="c_password" class="form-control" id="exampleInputPassword2">
-                    </div>
-
+                    <div class="d-flex mb-3 flex-row">
+                       <div>
+                            <label for="exampleInput" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleInput" required>
+                        </div>
+                        <div class="px-5">
+                            <label for="exampleInput" class="form-label">Confirm password</label>
+                            <input type="password" class="form-control" name="c_password" id="exampleInput" required>
+                        </div>
+                   </div>
                     <button type="submit" name="register_btn" class="btn btn-primary">Submit</button>
-        </form>
+                </form>
 
         
         </div>

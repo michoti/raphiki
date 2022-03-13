@@ -10,10 +10,13 @@ class RegisterController
         return $this->conn = $db->conn;
     }
 
-    public function registration($fname,$email,$password)
+    public function registration($fname,$sname, $gender, $idNo, $telNo, $email,$password)
     {
         $hashedpasswd = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (fname,email,passwrd) VALUES ('$fname','$email','$hashedpasswd')";
+        $query = "INSERT INTO 
+                  users (fname, sname, gender, id_number, tel_number, email, passwrd)
+                  VALUES ('$fname', '$sname', '$gender', '$idNo', '$telNo','$email','$hashedpasswd')";
+                  
         $result = $this->conn->query($query);
 
         return $result;
@@ -48,8 +51,8 @@ class RegisterController
         $role = 2;
 
         $query = "INSERT INTO
-         `users`(`fname`, `sname`, `id_number`, `tel_number`, `email`, `specialty`, `passwrd`, `role_as` ) 
-         VALUES ('$fname','$sname','$counsellor_id','$counsellor_tel','$email','$specialty','$hashed','$role')" ; 
+         `users`(`fname`, `sname`, `gender`, `id_number`, `tel_number`, `email`, `specialty`, `passwrd`, `role_as` ) 
+         VALUES ('$fname','$sname', '$gender','$counsellor_id','$counsellor_tel','$email','$specialty','$hashed','$role')" ; 
          
          $result = $this->conn->query($query);
 
