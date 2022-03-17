@@ -33,13 +33,22 @@ class ProfileController
     }
 
 
-    public function updateProfile($id, $fname, $email)
+    public function updateProfile($id, $fname, $sname, $idNo, $telNo, $email)
     {
-        if(!empty($fname) && !empty($email))
+        if(!empty($fname) && !empty($email) && !empty($sname))
         {
-        $q = "UPDATE users SET fname='$fname', email='$email' WHERE id='$id'";
-        $result = $this->conn->query($q);
+        $update_query = "UPDATE users 
+                SET 
+                fname='$fname',
+                sname='$sname',
+                id_number='$idNo', 
+                tel_number='$telNo', 
+                email='$email'
+                WHERE 
+                id='$id'";
 
+        $result = $this->conn->query($update_query);
+  
         if($result)
         {
             return true;
@@ -48,7 +57,7 @@ class ProfileController
         {
             return false;
         }
-
+  
     }
     else
     {

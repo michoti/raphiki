@@ -22,9 +22,9 @@
           </div>
         </div>
         <div class="member-info">
-          <h4>Walter White</h4>
+          <h4>Walter Mugendi</h4>
           <span>Chief Executive Officer</span>
-          <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium consectetur voluptatum nihil aliquid excepturi culpa totam omnis.</p>
         </div>
       </div>
     </div>
@@ -41,9 +41,9 @@
           </div>
         </div>
         <div class="member-info">
-          <h4>Sarah Jhonson</h4>
+          <h4>Sarah Kioko</h4>
           <span>Product Manager</span>
-          <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium consectetur voluptatum nihil aliquid excepturi culpa totam omnis.</p>
         </div>
       </div>
     </div>
@@ -60,9 +60,9 @@
           </div>
         </div>
         <div class="member-info">
-          <h4>William Anderson</h4>
-          <span>CTO</span>
-          <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+          <h4>William muteti</h4>
+          <span>Children rights activist</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium consectetur voluptatum nihil aliquid excepturi culpa totam omnis.</p>
         </div>
       </div>
     </div>
@@ -79,9 +79,9 @@
           </div>
         </div>
         <div class="member-info">
-          <h4>Amanda Jepson</h4>
-          <span>Accountant</span>
-          <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+          <h4>Amanda njeri</h4>
+          <span>Senior counsellor</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium consectetur voluptatum nihil aliquid excepturi culpa totam omnis.</p>
         </div>
       </div>
     </div>

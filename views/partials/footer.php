@@ -24,9 +24,9 @@
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
               <img src="assets/img/logo.png" alt="">
-              <span>FlexStart</span>
+              <span>Raphiki</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veniam accusamus, cupiditate quos ab debitis  laudantium?</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -73,7 +73,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Michoti</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Raphiki</span></strong>. All Rights Reserved
       </div>     
     </div>
   </footer><!-- End Footer -->

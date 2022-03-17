@@ -1,7 +1,8 @@
 <?php
 include '../controllers/regController.php';
 include '../controllers/loginController.php';
-include_once '../controllers/profileController.php';
+include '../controllers/profileController.php';
+include '../controllers/caseController.php';
 
 
 $auth = new LoginController;
@@ -50,7 +51,8 @@ if(isset($_POST['login_btn']))
 }
 
 
-if(isset($_POST['register_btn'])){
+if(isset($_POST['register_btn']))
+{
 
     $fname = validate($db->conn,$_POST['fname']);
     $sname = validate($db->conn,$_POST['sname']);
@@ -102,13 +104,15 @@ if(isset($_POST['register_btn'])){
 if(isset($_POST['edit-profile-btn']))
 {
     $id = validate($db->conn, $_POST['editedId']);
-    $fname = validate($db->conn, $_POST['editedname']);
+    $fname = validate($db->conn, $_POST['editedfname']);
+    $sname = validate($db->conn, $_POST['editedsname']);
+    $idNum = validate($db->conn, $_POST['editedIdNum']);
+    $tel = validate($db->conn, $_POST['editedTel']);
     $email = validate($db->conn, $_POST['editedemail']);
 
-    $user_id= validate($db->conn,$id);
-
     $Profile = new ProfileController;
-    $execution = $Profile->updateProfile($user_id, $fname, $email);
+
+    $execution = $Profile->updateProfile($id, $fname, $sname, $idNum, $tel, $email);
 
     if($execution)
     {
@@ -116,7 +120,7 @@ if(isset($_POST['edit-profile-btn']))
     }
     else
     {
-    redirect("Update failed", "danger", "views/edit_profile.php");
+    redirect("Update failed", "danger", "views/profile.php");
     }
     
 }
@@ -285,4 +289,7 @@ if(isset($_POST['counsellor-changepassword-btn']))
         redirect("password is not in database", "danger", "counsellor/counsellor_profile.php");
     }
 }
+
+
+
 ?>

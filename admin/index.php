@@ -21,12 +21,12 @@ include 'partials/head_admin.php';
           <div class="d-flex flex-column">
           <div class="card">
               <div class="card-header">
-                <h4 class="py-2">Chart topic</h4>
+                <h4 class="py-2">Active accounts</h4>
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
+                <canvas id="bar-chart">
+
+                </canvas>
               </div>
             </div>
             <div class="card">

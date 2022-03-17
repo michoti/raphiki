@@ -48,7 +48,6 @@ $data = $authenticated->authUserDetail();
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $_SESSION['auth_user']['user_fname']; ?></a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="profile.php">My profile</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <form action="" method="POST" class="dropdown-item">
@@ -90,8 +89,20 @@ $data = $authenticated->authUserDetail();
                         <table class="table table-borderless w-50">
                         <tbody>
                             <tr>
-                            <th>Name</th>
-                            <td><?= $row['fname'] ?></td>
+                            <th>Full name</th>
+                            <td><?= $row['fname'].' '.$row['sname'] ?></td>
+                            </tr>
+                            <tr>
+                            <th>Gender</th>
+                            <td><?= $row['gender'] ?></td>
+                            </tr>
+                            <tr>
+                            <th>ID number</th>
+                            <td><?= $row['id_number'] ?></td>
+                            </tr>
+                            <tr>
+                            <th>Telephone number</th>
+                            <td><?= $row['tel_number'] ?></td>
                             </tr>
                             <tr>
                             <th>Email</th>

@@ -47,7 +47,6 @@ $data = $authenticated->authUserDetail();
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $_SESSION['auth_user']['user_fname']; ?></a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="profile.php">My profile</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <form action="" method="POST" class="dropdown-item">
@@ -88,18 +87,34 @@ $data = $authenticated->authUserDetail();
                    
                     ?>
                           <div class="pb-2">
-                              <form action="" method="POST">
-                              <input type="hidden" name="editedId" class="form-control" id="exampleInputEmail1" value="<?= $data['id']?>" aria-describedby="emailHelp">
-                              <div class="mb-3">
-                                  <label for="exampleInputEmail1" class="form-label">First Name</label>
-                                  <input type="text" name="editedname" class="form-control" id="exampleInputEmail1" value="<?= $data['fname']?>" aria-describedby="emailHelp">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                  <input type="email" name="editedemail" class="form-control" id="exampleInputEmail1" value="<?= $data['email']?>" aria-describedby="emailHelp">
-                              </div>
-                              <button type="submit" name="edit-profile-btn" class="btn btn-primary">Submit</button>
-                              </form>
+                          <form action="" method="POST">
+                                <div class="d-flex mb-3 flex-row">
+                                    <div>
+                                            <label for="exampleInput" class="form-label">First name</label>
+                                            <input type="hidden" class="form-control" name="editedId" value="<?= $data['id'] ?>" id="exampleInput" required>
+                                            <input type="text" class="form-control" name="editedfname" value="<?= $data['fname'] ?>" id="exampleInput" required>
+                                        </div>
+                                        <div class="px-5">
+                                            <label for="exampleInput" class="form-label">second name</label>
+                                            <input type="text" class="form-control" name="editedsname" value="<?= $data['sname'] ?>" id="exampleInput" required>
+                                        </div>
+                                </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" name="editedemail" value="<?= $data['email'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                    </div>
+                                    <div class="mb-3 d-flex">
+                                        <div>
+                                            <label for="exampleInputEmail1" class="form-label">ID number</label>
+                                            <input type="text" class="form-control" name="editedIdNum" value="<?= $data['id_number'] ?>"  id="exampleInputEmail1" required>
+                                        </div>
+                                        <div class="px-5">
+                                            <label for="exampleInputEmail1" class="form-label">Telephone number</label>
+                                            <input type="tel" class="form-control" name="editedTel" value="<?= $data['tel_number'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" name="edit-profile-btn" class="btn btn-primary">Save changes</button>
+                                </form>
                     <?php }                    
                    
                     ?>

@@ -5,7 +5,7 @@
 
   <header class="section-header">
     <h2>Our strategy</h2>
-    <p>Veritatis et dolores facere numquam et praesentium</p>
+    <p>Reduction by action</p>
   </header>
 
   <div class="row gy-4">
@@ -13,8 +13,8 @@
     <div class="col-lg-4 col-md-6">
       <div class="service-box dark-blue">
         <i class="ri-discuss-line icon"></i>
-        <h3>Nesciunt Mete</h3>
-        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+        <h3>Constant communication</h3>
+        <p>We aspire to be in constant communication with the victims through our counsellors using emails and calls.</p>
         <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
@@ -22,8 +22,8 @@
     <div class="col-lg-4 col-md-6">
       <div class="service-box dark-blue">
         <i class="ri-discuss-line icon"></i>
-        <h3>Eosle Commodi</h3>
-        <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+        <h3>Update on cases</h3>
+        <p>The uniqueness of raphiki platform is to constantly update users of case progress hence encouraging users by showing them action.</p>
         <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
@@ -31,8 +31,8 @@
     <div class="col-lg-4 col-md-6">
       <div class="service-box dark-blue">
         <i class="ri-discuss-line icon"></i>
-        <h3>Ledo Markt</h3>
-        <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+        <h3>Justice</h3>
+        <p>Beyond arbitration the cases will be taken to court to seek justice for the victims and help them find peace by further counselling</p>
         <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>

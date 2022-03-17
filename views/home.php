@@ -1,7 +1,6 @@
 <?php 
 
 include_once '../controllers/authenticationController.php';
-include_once '../controllers/caseController.php';
 
 $data = $authenticated->authUserDetail();
 
@@ -49,7 +48,6 @@ $data = $authenticated->authUserDetail();
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $_SESSION['auth_user']['user_fname']; ?></a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="profile.php">My profile</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <form action="" method="POST" class="dropdown-item">
@@ -69,18 +67,17 @@ $data = $authenticated->authUserDetail();
 <main id="main">
      <section id="auth_user_section">
           <div class="container">
-            <div class="row">
+            <div class="row mt-3">             
+            <?php include 'message.php'; ?>
               <div class="pr-3 col-lg-6 col-sm-12 col-md-6">
                      <div class="py-3">
                        <h3>Report a case</h3>
-
-                       <?php include 'message.php'; ?>
 
                      </div>
                     <form action="report_case.php" method="POST">
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name of offender</label>
-                        <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="offender_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                       </div>
                       <div class="mb-3">
                         <select class="form-select" name="relation" aria-label="Default select example">
@@ -100,15 +97,15 @@ $data = $authenticated->authUserDetail();
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Location of incident</label>
-                        <input type="text" name="location" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="location" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name of person who can backup the claim</label>
-                        <input type="text" name="witness" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="witness" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Under what circumstances did it happen?</label>
-                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
                       </div>
                       <button type="submit" name="report_btn" class="btn btn-primary">Submit</button>
                     </form>
