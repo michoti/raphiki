@@ -24,7 +24,7 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="all_users.php">
           <i class="bi bi-person"></i>
           <span>Users</span>
         </a>

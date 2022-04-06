@@ -66,9 +66,9 @@ include 'partials/head_admin.php';
                     <div class="mb-3">
                         <select class="form-select" name="specialty" aria-label="Default select example">
                         <option selected>Counsellor specialty</option>
-                        <option value="1">Rape</option>
-                        <option value="2">Bullying</option>
-                        <option value="3">child labour</option>
+                        <option value="rape">Rape</option>
+                        <option value="bullying">Bullying</option>
+                        <option value="child-labour">child labour</option>
                         </select>
                     </div>
                     <button type="submit" name="regCounsellor-btn" class="btn btn-primary">Submit</button>

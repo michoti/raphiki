@@ -12,12 +12,12 @@ include './partials/top_nav.php';
 
 ?>
 
-<section>
+<section id="login-section">
     <div class="container">        
 
-        <div class="d-flex justify-content-center align-content-center">
+        <div class="row my-5">
 
-            <div class="py-5">  
+            <div class="col-6 offset-3 card px-5 py-4">  
                 
                <div class="pb-3 d-flex justify-content-center align-content-center">
                     <h2 class="my-2">Login</h2>

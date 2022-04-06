@@ -31,32 +31,12 @@ include 'partials/head_admin.php';
             </div>
             <div class="card">
               <div class="card-header">
-                <h4 class="py-2">Chart topic</h4>
+                <h4 class="py-2">Cases over time</h4>
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="py-2">Chart topic</h4>
-              </div>
-              <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="py-2">Chart topic</h4>
-              </div>
-              <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
+                <canvas id="line-graph">
+
+                </canvas>
               </div>
             </div>
           </div>
@@ -65,42 +45,48 @@ include 'partials/head_admin.php';
           <div class="d-flex flex-column">
             <div class="card">
               <div class="card-header">
-                <h4 class="py-2">Card header</h4>
+                <h4 class="py-2 text-center">Users total</h4>
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
+                <div class="d-flex justify-content-center align-content-center">
+                  <?php
+                     $query = "SELECT COUNT(*) AS total FROM users";
+                     $execute_query = $db->conn->query($query);
+                     if($execute_query)
+                     { 
+                       $rows = $execute_query->fetch_assoc();                  
+                  ?>
+                    <h1 class="fs-1"><?=$rows['total']; ?></h1>
+                    <?php } ?>
+                </div>
               </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h4 class="py-2">Card header</h4>
+                <h4 class="py-2 text-center">Total cases</h4>
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
+              <div class="d-flex justify-content-center align-content-center">
+                  <?php
+                     $query = "SELECT COUNT(*) AS total FROM cases";
+                     $execute_query = $db->conn->query($query);
+                     if($execute_query)
+                     { 
+                       $rows = $execute_query->fetch_assoc();                  
+                  ?>
+                    <h1><?=$rows['total']; ?></h1>
+                    <?php } ?>
+                </div>
               </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h4 class="py-2">Card header</h4>
+                <h4 class="py-2">Cases pie chart</h4>
               </div>
               <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="py-2">Card header</h4>
-              </div>
-              <div class="card-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Earum quos facilis totam fugit quam numquam,
-                   obcaecati dolorem nemo sed voluptates, nulla nisi commodi perspiciatis blanditiis cumque officiis ex incidunt inventore!</p>
+                <canvas id="pie-chart">
+
+                </canvas>
               </div>
             </div>
           </div>

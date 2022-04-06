@@ -291,5 +291,24 @@ if(isset($_POST['counsellor-changepassword-btn']))
 }
 
 
+if(isset($_POST['update-status']))
+{
+    $status = validate($db->conn,$_POST['status-update']);
+    $id = validate($db->conn,$_POST['case-id']);
+
+    $q = "UPDATE cases SET status='$status' WHERE case_id='$id' ";
+    $exc = $db->conn->query($q);
+    if($exc)
+    {
+        redirect("status updated successfully", "success", "counsellor/cases_counsellor.php");
+        exit(0);
+    }
+    else
+    {
+        redirect("status was NOT updated successfully", "danger", "counsellor/cases_counsellor.php");
+    }
+}
+
+
 
 ?>

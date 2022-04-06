@@ -19,9 +19,11 @@ $data = $authenticated->authUserDetail();
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/r-2.2.9/datatables.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/r-2.2.9/datatables.min.js"></script>
 
   <!-- Vendor CSS Files -->
-  <link href=".././assets/vendor/aos/aos.css" rel="stylesheet">
   <link href=".././assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href=".././assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href=".././assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
@@ -34,7 +36,7 @@ $data = $authenticated->authUserDetail();
 </head>
 <body>
       <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
+  <header id="header" class="header">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="#" class="logo d-flex align-items-center">
@@ -67,9 +69,9 @@ $data = $authenticated->authUserDetail();
 <main id="main">
      <section id="auth_user_section">
           <div class="container">
-            <div class="row mt-3">             
+            <div class="row">             
             <?php include 'message.php'; ?>
-              <div class="pr-3 col-lg-6 col-sm-12 col-md-6">
+              <div class="card px-5 py-3 col-lg-6 col-sm-12 col-md-6">
                      <div class="py-3">
                        <h3>Report a case</h3>
 
@@ -111,17 +113,18 @@ $data = $authenticated->authUserDetail();
                     </form>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-6">
-                <div class="pb-4">
+                <div class="card mb-4 px-5 py-3">
                     <div class="py-3">
                       <h3>Previously reported cases</h3>
                     </div>
-                    <table class="table">
+                    <table id="display-cases-table" class="table" cellspacing="0">
                       <thead>
                         <tr>
                           <th scope="col">Date</th>
                           <th scope="col">Offender's name</th>
                           <th scope="col">offender's relation</th>
                           <th scope="col">IncidentLocation</th>
+                          <th>status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -143,6 +146,22 @@ $data = $authenticated->authUserDetail();
                                   <td><?= $row['offenderName'] ?></td>
                                   <td><?= $row['offenderRelation'] ?></td>
                                   <td><?= $row['incidentLocation'] ?></td>
+                                  <td>
+                                      <?php 
+                                          if($row['status'] == 0)
+                                          {
+                                              echo '<button class="btn btn-danger">Not solved</button>';
+                                          }
+                                          elseif($row['status'] == 1)
+                                          {
+                                              echo '<button class="btn" style="background: orange;">In progress</button>';
+                                          }
+                                          else
+                                          {
+                                          echo '<button class="btn btn-success">Solved</button>';
+                                          }
+                                      ?>
+                                  </td>
                                 </tr>
                              <?php
                               }
@@ -155,7 +174,7 @@ $data = $authenticated->authUserDetail();
                       </tbody>
                     </table>
                 </div>
-                <div class="">
+                <div class="card px-5 py-3">
                      <div class="py-3">
                        <h3>Speak to our counsellors</h3>
                      </div>
@@ -270,3 +289,10 @@ $data = $authenticated->authUserDetail();
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    $(document).ready( function () {
+
+       $('#display-cases-table').DataTable();
+    
+    } );
+  </script>
