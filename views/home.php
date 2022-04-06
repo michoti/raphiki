@@ -4,6 +4,9 @@ include_once '../controllers/authenticationController.php';
 
 $data = $authenticated->authUserDetail();
 
+// define('BASE_DIR', __DIR__);
+// print_r(BASE_DIR);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
