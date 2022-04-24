@@ -24,12 +24,24 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
+        <?php 
+            $q = "SELECT * FROM stray_msg WHERE status = 0";
+            $exc = $db->conn->query($q);
+            $count = $exc->num_rows;
+        ?>
+        <li class="nav-item pe-3">
+          <a class="nav-link" href="#">
+          <i class="fas fa-envelope" aria-hidden="true"></i> <span class="badge bg-danger" id="count"><?= $count ?></span>
+          </a>
+        </li>          
 
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['auth_user']['user_fname'].' '.$_SESSION['auth_user']['user_sname'] ?></span>
           </a><!-- End Profile Iamge Icon -->
+
+
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 

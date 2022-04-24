@@ -46,8 +46,12 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post" class="php-email-form">
+            <?php 
+             include 'message.php'; 
+            ?>
+            <form action="" method="POST" class="php-email-form">
               <div class="row gy-4">
+
 
                 <div class="col-md-6">
                   <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -63,15 +67,9 @@
 
                 <div class="col-md-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
+                </div>               
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
+                  <button name="msg_send" type="submit">Send Message</button>                
 
               </div>
             </form>

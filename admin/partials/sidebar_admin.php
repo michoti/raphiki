@@ -24,6 +24,13 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="message.php">
+        <i class="fa fa-envelope-open" aria-hidden="true"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="all_users.php">
           <i class="bi bi-person"></i>
           <span>Users</span>

@@ -3,6 +3,7 @@ include '../controllers/regController.php';
 include '../controllers/loginController.php';
 include '../controllers/profileController.php';
 include '../controllers/caseController.php';
+include '../controllers/msgController.php';
 
 
 $auth = new LoginController;
@@ -310,5 +311,24 @@ if(isset($_POST['update-status']))
 }
 
 
+if(isset($_POST['msg_send']))
+{
+   $name = validate($db->conn,$_POST['name']);
+   $email = validate($db->conn,$_POST['email']);
+   $subjet = validate($db->conn,$_POST['subjet']);
+   $message = validate($db->conn,$_POST['message']);
+
+   $msg = new Message();
+   $result = $msg->insert_stray_msg($name,$email,$message,$subjet);
+   
+   if($result)
+   {
+       redirect("message sent successfully", "success", "views/index.php");
+   }
+   else
+   {
+       redirect("message NOT sent!", "danger", "views/index.php");
+   }
+}
 
 ?>

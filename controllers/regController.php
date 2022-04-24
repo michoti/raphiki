@@ -7,7 +7,7 @@ class RegisterController
     public function __construct()
     {
         $db = new Database;
-        return $this->conn = $db->conn;
+        $this->conn = $db->conn;
     }
 
     public function registration($fname,$sname, $gender, $idNo, $telNo, $email,$password)

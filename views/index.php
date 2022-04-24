@@ -1,4 +1,6 @@
 <?php
+include '../config/db_config.php';
+
 include 'partials/header.php';
 ?>
 
