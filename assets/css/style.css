@@ -68,6 +68,11 @@ section {
   border-radius: .75rem;
 }
 
+#registration .container .card{
+  background-color: #f6f9ff;
+  border-radius: .75rem;
+}
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/

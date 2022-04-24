@@ -10,12 +10,12 @@ include './partials/top_nav.php';
 
 ?>
 
-<section>
+<section id="registration">
     <div class="container">        
 
-    <div class="d-flex justify-content-center align-content-center">
+    <div class="mt-5 d-flex justify-content-center align-content-center">
 
-        <div class="py-5">  
+        <div class="card py-4 px-4">  
             
         <div class="pb-3 d-flex justify-content-center align-content-center">
                 <h2 class="my-2">Register</h2>
