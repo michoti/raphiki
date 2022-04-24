@@ -1985,3 +1985,13 @@ section {
   font-size: 13px;
   color: #012970;
 }
+
+/* Messages */
+
+.unread-msg{
+  background: green;
+}
+
+.read-msg{
+  background: pink;
+}
