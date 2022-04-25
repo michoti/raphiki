@@ -315,11 +315,11 @@ if(isset($_POST['msg_send']))
 {
    $name = validate($db->conn,$_POST['name']);
    $email = validate($db->conn,$_POST['email']);
-   $subjet = validate($db->conn,$_POST['subjet']);
+   $subject = validate($db->conn,$_POST['subject']);
    $message = validate($db->conn,$_POST['message']);
 
    $msg = new Message();
-   $result = $msg->insert_stray_msg($name,$email,$message,$subjet);
+   $result = $msg->insert_stray_msg($name,$email,$message,$subject);
    
    if($result)
    {
@@ -328,6 +328,30 @@ if(isset($_POST['msg_send']))
    else
    {
        redirect("message NOT sent!", "danger", "views/index.php");
+   }
+}
+
+
+
+
+if(isset($_POST['send_counsellor_msg']))
+{
+   $name = validate($db->conn,$_POST['user_name']);
+   $sender_email = validate($db->conn,$_POST['user_email']);
+   $recipient_email = validate($db->conn,$_POST['recipient_email']);
+   $subject = validate($db->conn,$_POST['subject']);
+   $message = validate($db->conn,$_POST['body_msg']);
+
+   $msg = new Message();
+   $result = $msg->insert_counsellor_msg($name,$sender_email, $recipient_email,$message,$subject);
+   
+   if($result)
+   {
+       redirect("message sent successfully", "success", "views/home.php");
+   }
+   else
+   {
+       redirect("message NOT sent!", "danger", "views/home.php");
    }
 }
 

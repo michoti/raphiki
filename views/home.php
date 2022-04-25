@@ -180,17 +180,21 @@ $data = $authenticated->authUserDetail();
                 <div class="card px-5 py-3">
                      <div class="py-3">
                        <h3>Speak to our counsellors</h3>
+                       <?php include 'message.php'; ?>
                      </div>
-                    <form>
+                    <form action="" method="POST">
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="hidden" class="form-control" name="user_name" value="<?= $_SESSION['auth_user']['user_fname']; ?>">
+                        <input type="hidden" class="form-control" name="user_email" value="<?= $_SESSION['auth_user']['user_email']; ?>">
+                        <input type="text" class="form-control" name="subject" id="exampleInputEmail1" placeholder="subject" aria-describedby="emailHelp">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Body</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <input type="text" class="form-control" name="recipient_email" id="exampleInputEmail1" placeholder="recipient email" aria-describedby="emailHelp">
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <div class="mb-3">
+                        <textarea class="form-control" name="body_msg" id="exampleFormControlTextarea1" placeholder="body" rows="3"></textarea>
+                      </div>
+                      <button type="submit" name="send_counsellor_msg" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
               </div>
