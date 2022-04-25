@@ -17,7 +17,7 @@ include 'partials/head_admin.php';
     <section class="section dashboard">
         <div class="row">
             <div class="col-10 offset-1">
-                <table class="table" id="all-users">
+                <table class="table" id="all-counsellors">
                 <thead>
                     <th>ID</th>
                     <th>first name</th>
@@ -26,10 +26,11 @@ include 'partials/head_admin.php';
                     <th>national ID</th>
                     <th>Tel number</th>
                     <th>email</th>
+                    <th>delete</th>
                 </thead>
                 <tbody>
                 <?php 
-                            $q = "SELECT * FROM users WHERE role_as=0";
+                            $q = "SELECT * FROM users WHERE role_as=2";
                             $exc = $db->conn->query($q);
                             if($exc)
                             {
@@ -44,25 +45,46 @@ include 'partials/head_admin.php';
                                         <td><?=$row['gender']?></td> 
                                         <td><?=$row['id_number']?></td>
                                         <td><?=$row['tel_number']?></td> 
-                                        <td><?=$row['email']?></td>                                     
+                                        <td><?=$row['email']?></td>
+                                        <td>
+                                            <form method="POST">
+                                                <input type="hidden" name="counsellor_id" value="<?=$row['id']?>">
+                                                <button class="btn" type="submit" name="delete_counsellor"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </form>
+                                        </td>                                      
                                     </tr>
                                     <?php }
 
                                 }
                                 else
                                 {
-                                    redirect("no data was retrieved", "danger", "admin/all_users.php");
+                                    redirect("no data was retrieved", "danger", "admin/all_counsellors.php");
                                 }
                             }
                             else
                             {
-                                redirect("query error", "danger", "admin/all_users.php");
+                                redirect("query error", "danger", "admin/all_counsellors.php");
                             }
                             
                             ?>
 
                 </tbody>
             </table> 
+
+            <?php
+
+              if(isset($_POST['delete_counsellor']))
+              {
+                  $id = $_POST['id'];
+                  $query = "DELETE FROM users WHERE id='$id'";
+                  $execute_counsellor_delete = $db->conn->query($query);
+
+                  if($execute_counsellor_delete)
+                  {
+                     redirect("counsellor deleted", "danger", "admin/all_counsellors.php");
+                  }
+              }
+            ?>
             </div>
         </div>     
     </section>
@@ -78,7 +100,7 @@ include 'partials/footer_admin.php';
 <script>
     $(document).ready(function(){
 
-        $('#all-users').DataTable();
+        $('#all-counsellors').DataTable();
 
     });
 </script>

@@ -37,6 +37,13 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="all_counsellors.php">
+          <i class="bi bi-person"></i>
+          <span>Counsellors</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
     </ul>
 
   </aside><!-- End Sidebar-->

@@ -70,6 +70,11 @@ include 'partials/head_admin.php';
                   $id = $_POST['id'];
                   $query = "DELETE FROM stray_msg WHERE id='$id'";
                   $execute_stray_msg_delete = $db->conn->query($query);
+
+                  if($execute_stray_msg_delete)
+                  {
+                     redirect("message deleted", "danger", "admin/message.php");
+                  }
               }
             ?>
            </div>
