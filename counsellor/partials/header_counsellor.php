@@ -24,6 +24,17 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
+        <?php 
+            $account_email = $_SESSION['auth_user']['user_email'];
+            $q = "SELECT * FROM counsellor_msg WHERE status = 0 & recipient_email = '$account_email'";
+            $exc = $db->conn->query($q);
+            $count = $exc->num_rows;
+        ?>
+        <li class="nav-item pe-3">
+          <a class="nav-link" href="#">
+          <i class="fas fa-envelope" aria-hidden="true"></i> <span class="badge bg-danger" id="count"><?= $count ?></span>
+          </a>
+        </li>  
 
         <li class="nav-item dropdown pe-3">
 
